@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.openqa.selenium.remote.BrowserType.CHROME;
+
 public class ApplicationManager {
 
   WebDriver driver;
@@ -26,11 +28,11 @@ public class ApplicationManager {
     System.setProperty("webdriver.gecko.driver", "/home/irina_okhotina/Документы/Projects/pageobjectseleniumtest/drivers/geckodriver");
 
 
-    if (browser == BrowserType.CHROME) {
+    if (browser.equals(BrowserType.CHROME) ) {
       driver = new ChromeDriver();
-    } else if (browser == BrowserType.FIREFOX) {
+    } else if (browser.equals(BrowserType.FIREFOX) ) {
       driver = new FirefoxDriver();
-    } else  if (browser == BrowserType.IE) {
+    } else  if (browser.equals(BrowserType.IE) ) {
       driver = new InternetExplorerDriver();
     }
     driver = new ChromeDriver();

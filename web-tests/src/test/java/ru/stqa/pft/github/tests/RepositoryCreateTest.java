@@ -10,10 +10,7 @@ public class RepositoryCreateTest extends TestBase {
 
   @Test
   public void testCreateRepository() {
-    app.getNavigationHelper().gotoNewRepository();
-    app.getRepositoryHelper().initRepositoryCreation();
-    app.getRepositoryHelper().fillRepositoryForm(new RepositoryDataCreate("My", "111"));
-    app.getRepositoryHelper().submitRepositoryCreation();
+    app.getRepositoryHelper().createRepository(new RepositoryDataCreate("My", "111"));
     app.getNavigationHelper().gotoRepositoryPage();
   }
 
