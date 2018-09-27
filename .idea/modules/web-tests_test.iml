@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="web-tests:test" external.linked.project.path="$MODULE_DIR$/../../web-tests" external.root.project.path="$MODULE_DIR$/../../web-tests" external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output-test url="file://$MODULE_DIR$/../../web-tests/out/test/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../web-tests/src/test">
@@ -12,6 +12,7 @@
     <orderEntry type="module" module-name="web-tests_main" />
     <orderEntry type="library" name="Gradle: com.slickqa:testng:7.0.0-7" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-java:3.14.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.hamcrest:java-hamcrest:2.0.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.beust:jcommander:1.72" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-chrome-driver:3.14.0" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-edge-driver:3.14.0" level="project" />

@@ -2,19 +2,22 @@ package ru.stqa.pft.github.tests;
 
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import ru.stqa.pft.github.appmanager.ApplicationManager;
 
 public class TestBase {
 
-  protected final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+  protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
-  @BeforeClass
+  @BeforeSuite
+
   public void setUp() {
     app.init();
   }
 
-  @AfterClass
+  @AfterSuite
   public void tearDown() {
     app.stop();
   }

@@ -49,11 +49,11 @@ public class ApplicationManager {
     driver.quit();
   }
 
-  public RepositoryHelper getRepositoryHelper() {
+  public RepositoryHelper repository() {
     return repositoryHelper;
   }
 
-  public NavigationHelper getNavigationHelper() {
+  public NavigationHelper goTo() {
     return navigationHelper;
   }
 }

@@ -10,15 +10,9 @@ public class NavigationHelper extends HelperBase{
     super(driver);
   }
 
-  public void gotoNewRepository() {
-    click(By.xpath("//ul[@id='user-links']/li[2]/details/summary"));
-  }
 
-  public void goToSettings() {
-    click(By.xpath("//div[@id='js-repo-pjax-container']/div/nav/a[4]"));
-  }
 
-  public void gotoRepositoryPage() {
+  public void repositoryPage() {
     click(By.xpath("//img[@alt='@Irina36']"));
     click(By.linkText("Your repositories"));
   }
