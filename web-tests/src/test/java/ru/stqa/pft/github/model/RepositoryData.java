@@ -1,7 +1,10 @@
 package ru.stqa.pft.github.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.util.Objects;
 
+  @XStreamAlias("repository")
 public class RepositoryData {
 
   private  String name;

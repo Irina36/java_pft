@@ -1,10 +1,12 @@
 package ru.stqa.pft.github.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.github.model.RepositoryData;
-import java.util.Set;
+import ru.stqa.pft.github.model.Repositoryes;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class RepositoryModificationTest extends TestBase {
 
@@ -19,17 +21,15 @@ public class RepositoryModificationTest extends TestBase {
   public void testRepositoryModification () {
 
     app.goTo().repositoryPage();
-    Set<RepositoryData> before = app.repository().all();
+    Repositoryes before = app.repository().all();
     RepositoryData modifiedRepository = before.iterator().next(); // объект, в котором выбирается из последовательного множества первый попавшийся элемент
     RepositoryData repository = new RepositoryData()
             .withName(modifiedRepository.getName()).withDescription("My test repository").withWebsite("https://github.com/Irina36/java_pft");
     app.repository().modify(repository);
     app.goTo().repositoryPage();
-    Set<RepositoryData> after = app.repository().all();
-    Assert.assertEquals(after.size(), before.size());
-    before.remove(modifiedRepository);
-    before.add(repository);
-    Assert.assertEquals(before,after);
+    Repositoryes after = app.repository().all();
+    assertEquals(after.size(), before.size());
+    assertThat(after, equalTo(before.withoud(modifiedRepository).withAdded(repository)));
 
   }
 

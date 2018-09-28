@@ -1,10 +1,15 @@
 package ru.stqa.pft.github.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.github.model.RepositoryData;
-import java.util.Set;
+import ru.stqa.pft.github.model.Repositoryes;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 
 public class RepositoryDeletionTest extends TestBase {
@@ -19,14 +24,13 @@ public class RepositoryDeletionTest extends TestBase {
   @Test(enabled = false)
   public void testRepositoryDeletion() {
     app.goTo().repositoryPage();
-    Set<RepositoryData> before = app.repository().all();
+    Repositoryes before = app.repository().all();
     RepositoryData deletedRepository = before.iterator().next(); // объект, в котором выбирается из последовательного множества первый попавшийся элемент
     app.repository().delete(deletedRepository);
     app.goTo().repositoryPage();
-    Set<RepositoryData> after = app.repository().all();
-    Assert.assertEquals(after.size(), before.size() - 1);
-    before.remove(deletedRepository);
-    Assert.assertEquals(before, after);
+    Repositoryes after = app.repository().all();
+    assertEquals(after.size(), before.size() - 1);
+    assertThat(after, equalTo(before.withoud(deletedRepository)));
 
   }
 }

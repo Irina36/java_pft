@@ -1,0 +1,11 @@
+<root>
+    <item name='com.beust.jcommander.JCommander'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+    <item name='com.beust.jcommander.Parameter'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+    <item name='com.beust.jcommander.Parameters'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

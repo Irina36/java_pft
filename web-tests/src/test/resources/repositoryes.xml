@@ -1,0 +1,14 @@
+<list>
+  <repository>
+    <name>test 0</name>
+    <description>test 0</description>
+  </repository>
+  <repository>
+    <name>test 1</name>
+    <description>test 1</description>
+  </repository>
+  <repository>
+    <name>test 2</name>
+    <description>test 2</description>
+  </repository>
+</list>

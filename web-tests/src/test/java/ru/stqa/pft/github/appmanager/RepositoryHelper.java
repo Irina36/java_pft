@@ -5,6 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.github.model.RepositoryData;
+import ru.stqa.pft.github.model.Repositoryes;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -76,6 +78,7 @@ public class RepositoryHelper extends HelperBase {
     initRepositoryCreation();
     fillRepositoryForm(repository);
     submitRepositoryCreation();
+    repositoryCache = null;
   }
 
   public void modify(RepositoryData repository) {
@@ -86,6 +89,7 @@ public class RepositoryHelper extends HelperBase {
     goToSettings();
     fillRepositoryModifyName(repository);
     saveRepositoryModifyName();
+    repositoryCache = null;
   }
 
   public void delete(RepositoryData repository) {
@@ -94,6 +98,7 @@ public class RepositoryHelper extends HelperBase {
     clickDeleteThisRepository();
     fillNameRepositoryDeletion();
     clickDeleteRepository();
+    repositoryCache = null;
   }
 
   public boolean isThereARepository() {
@@ -114,16 +119,22 @@ public class RepositoryHelper extends HelperBase {
     return driver.findElements(By.xpath("//*[@id='user-repositories-list']//a[@itemprop='name codeRepository']")).size();
   }
 
-  public Set<RepositoryData> all() {
-    Set<RepositoryData> repositoryes = new HashSet<RepositoryData>();
+  private Repositoryes repositoryCache = null;
+
+  public Repositoryes all() {
+    if (repositoryCache != null) {
+      return new Repositoryes(repositoryCache);
+    }
+
+    repositoryCache = new Repositoryes();
     List<WebElement> elements = driver.findElements(By.xpath("//*[@id='user-repositories-list']//a"));
 
     for (WebElement element : elements) {
       String name = element.getText();
       /*int id = Integer.parseInt(element.findElement(By.xpath("//*[@id='user-repositories-list']//a[@itemprop='name codeRepository']")).getAttribute("offsetTop"));*/
-      repositoryes.add(new RepositoryData().withName(name));
+      repositoryCache.add(new RepositoryData().withName(name));
     }
-    return repositoryes;
+    return new Repositoryes(repositoryCache);
 
   }
 
